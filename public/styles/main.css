@@ -1,0 +1,97 @@
+body {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+#name {
+  color: #ff8c00;
+  font-weight: 900;
+  /*text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);*/
+  /* -webkit-text-stroke: 0.1px rgb(0, 0, 0); Border */
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+#nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffdf8d;
+  gap: 10px;
+  padding: 2px 2px;
+}
+
+#nav-bar-left {
+  display: flex; /* Groups logo and name together */
+  align-items: center;
+  gap: 10px; /* Adds space between the logo and name */
+}
+
+form {
+  display: flex; /* Groups logo and name together */
+  align-items: center;
+  gap: 10px; /* Adds space between the logo and name */
+  padding-right: 10px;
+}
+
+#nb-logo {
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+}
+
+.nb-name {
+  font-size: 30px;
+}
+
+#drop-down {
+  border: solid 3px #ff8c00;
+  border-radius: 10px;
+}
+
+#drop-down:focus {
+  box-shadow: 0 0 8px rgb(255, 67, 67);
+  outline: none;
+}
+
+#search-bar {
+  padding: 0.375rem 0.75rem;
+  background-color: white;
+  border: solid 3px #ff8c00;
+  border-radius: 10px;
+}
+
+#search-bar:focus {
+  box-shadow: 0 0 8px rgb(255, 67, 67);
+  outline: none;
+}
+
+#button {
+  padding: 0.375rem 0.75rem;
+  border-radius: 10px;
+  /*background-color: #72bf78;*/
+  background-color: #72bf78;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+#button:hover {
+  background-color: #2ca8a0;
+  box-shadow: 0 0 12px rgb(113, 229, 154);
+}
+
+#button:active {
+  background-color: #176b87;
+  box-shadow: 0 0 12px rgb(113, 229, 154);
+}
+
+#foot {
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffdf8d;
+  font-size: 19px;
+}
