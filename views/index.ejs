@@ -1,7 +1,102 @@
 <%- include("header.ejs") %>
 
+<!-- author_name: result.author_name,
+title: result.title,
+ratings_sortable: result.ratings_sortable,
+first_publish_year: result.first_publish_year, -->
+
 <div id="main-container">
-  <p>Test</p>
+    <% if(locals.content && filter === "author") { %>
+    <div id="inner-container-author-data">
+        <div id="inner-author">
+            Top 5 Books of <%= content.docs[0].author_name[0] %>
+        </div>
+        <div id="inner-details-title">
+            <em>Book Title</em>
+        </div>
+        <div id="inner-details-year">
+            <em>First Published Year</em>
+        </div>
+        <div id="inner-details-ratings">
+            <em>Ratings</em>
+        </div>
+        <div id="inner-title">
+            <ul class="lst">
+                <% for(let i=0; i<content.docs.length && i<5; i++) { %>
+                    <li class="lst-element"><%= content.docs[i].title %></li>
+                <% } %>
+            </ul>
+        </div>
+        <div id="inner-year">
+            <ul class="lst inner-col">
+                <% for(let i=0; i<content.docs.length && i<5; i++) { %>
+                    <li class="lst-element"><%= content.docs[i].first_publish_year %></li>
+                <% } %>
+            </ul>
+        </div>
+        <div id="inner-rating">
+            <ul class="lst inner-col">
+                <% for(let i=0; i<content.docs.length && i<5; i++) { %>
+                    <li class="lst-element"><%= content.docs[i].ratings_sortable %></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    <% } else if(locals.content && filter === "title") { %>
+  <div id="inner-container-title-data">
+    <div id="inner-left">
+      <ul class="list">
+        <li class="list-element">
+          <strong>Title</strong>: <%= content.title %>
+        </li>
+        <li class="list-element">
+          <strong>Author's Name</strong>: <%= content.author_name %>
+        </li>
+        <li class="list-element">
+          <strong>Total Ratings</strong>: <%= content.ratings_count %>
+        </li>
+        <li class="list-element">
+          <strong>Average Ratings</strong>: <%= content.ratings_average %>
+        </li>
+        <li class="list-element">
+          <strong>5★ Ratings</strong>: <%= content.ratings_count_5 %>
+        </li>
+      </ul>
+    </div>
+    <div id="inner-right">
+      <ul class="list">
+        <li class="list-element">
+          <strong>Published Year</strong>: <%= content.first_publish_year %>
+        </li>
+        <li class="list-element">
+            <strong>Languages</strong>:
+            <% if (!content.language) { %>
+                ENG
+            <% } else { %>
+                <% for(let i=0; i<content.language.length && i<9; i++) { %>
+                    <% if(content.language[i] === "eng") continue %>
+                    <%= content.language[i].toUpperCase() %>, 
+                <% } %>ENG 
+            <% } %>
+        </li>
+        <li class="list-element">
+          <strong>People Reading</strong>: <%= content.currently_reading_count%>
+        </li>
+        <li class="list-element">
+          <strong>Wanting to Read</strong>: <%= content.want_to_read_count %>
+        </li>
+        <li class="list-element">
+          <strong>Already Read</strong>: <%= content.already_read_count %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <% } else { %>
+  <div id="inner-container-wo-data">
+    <h1>Welcome to <span id="name">BookHive</span></h1>
+    <h5>Your one Stop to Find Your Next Read!</h5>
+  </div>
+  <% } %>
 </div>
 
 <%- include("footer.ejs") %>

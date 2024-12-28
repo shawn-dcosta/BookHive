@@ -1,6 +1,10 @@
+html,
 body {
-  margin: 0px 0px;
-  padding: 0px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 #name {
@@ -20,6 +24,7 @@ body {
   background-color: #ffdf8d;
   gap: 10px;
   padding: 2px 2px;
+  flex-shrink: 0; /* Prevents shrinking of the nav-bar */
 }
 
 #nav-bar-left {
@@ -87,7 +92,167 @@ form {
   box-shadow: 0 0 12px rgb(113, 229, 154);
 }
 
+#main-container {
+  display: flex;
+  flex: 1; /* Takes up all available space between nav-bar and footer */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/bg-img.jpg");
+  background-size: cover; /* Optional: To ensure the image covers the container */
+  background-repeat: no-repeat;
+  height: calc(100vh - 103px);
+}
+
+#inner-container-author-data {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-template-rows: 75px 80px 548px;
+  height: 650px;
+  width: 1150px;
+  gap: 10px;
+  background-image: url("/images/black-board.png");
+  background-size: 100% 100%;
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  color: white;
+}
+
+#inner-author {
+  margin-top: 31px;
+  margin-left: 34px;
+  padding-bottom: 10px;
+  grid-column: span 3;
+  grid-row: 1;
+  text-align: center;
+  width: 1082px;
+  border-bottom: 3px double white;
+}
+
+#inner-details-title {
+  margin-left: 34px;
+  grid-column: 1;
+  grid-row: 2;
+  text-align: center;
+}
+
+#inner-details-year {
+  grid-column: 2;
+  grid-row: 2;
+  text-align: center;
+}
+
+#inner-details-ratings {
+  grid-column: 3;
+  grid-row: 2;
+  text-align: center;
+  margin-right: 34px;
+}
+
+#inner-title {
+  grid-column: 1;
+  grid-row: 3;
+  margin-left: 34px;
+}
+
+#inner-year {
+  grid-column: 2;
+  grid-row: 3;
+  text-align: center;
+}
+
+#inner-rating {
+  grid-column: 3;
+  grid-row: 3;
+  margin-right: 34px;
+  text-align: center;
+}
+
+.inner-col {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lst-element {
+  margin-bottom: 35px;
+}
+
+.lst-element:last-child {
+  margin-bottom: 0px;
+}
+
+#inner-container-title-data {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-image: url("/images/open-book.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 750px;
+  width: 1150px;
+  gap: 30px;
+}
+
+#inner-left {
+  padding-top: 55px;
+  padding-left: 165px;
+  align-items: flex-start;
+  font-size: 25px;
+  width: 575px;
+}
+
+#inner-right {
+  padding-top: 55px;
+  align-items: flex-start;
+  font-size: 25px;
+  width: 400px;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-element {
+  margin-bottom: 70px;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.list-element:last-child {
+  margin-bottom: 0px;
+}
+
+#inner-container-wo-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: calc(100vh - 200px);
+  width: 75vh;
+  background-image: url("/images/trailing-bee.png");
+  background-size: 100% 90%;
+  background-repeat: no-repeat;
+  background-color: #eeeeec;
+  border-radius: 25px;
+  box-shadow: 0 0 18px rgb(255, 67, 67);
+  transition: transform 0.5s ease-in-out;
+  font-family: "Lobster", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#inner-container-wo-data:hover {
+  transform: scale(1.1);
+}
+
 #foot {
+  flex-shrink: 0; /* Keeps the footer fixed at the bottom */
   display: flex;
   height: 40px;
   justify-content: center;
