@@ -23,7 +23,7 @@ app.post("/submit", async (req, res) => {
             if(filter === "author") response = await axios.get(API_URL + `${filter}=` + `${query}&sort=rating`);
             else if(filter === "title") response = await axios.get(API_URL + `${filter}=` + `${query}`);
             const result = response.data;
-            const data2 = {
+            const data = {
                 author_name: result.docs[0].author_name[0],
                 first_publish_year: result.docs[0].first_publish_year,
                 language: result.docs[0].language,
@@ -40,7 +40,7 @@ app.post("/submit", async (req, res) => {
                 filter: filter,
             });
             else if(filter === "title") res.render("index.ejs", {
-                content: data2,
+                content: data,
                 filter: filter,
             });
         }catch(error){

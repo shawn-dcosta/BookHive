@@ -5,6 +5,16 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-image: url("/images/bg-img.jpg");
+  background-size: cover; /* Optional: To ensure the image covers the container */
+  background-repeat: no-repeat;
+}
+
+#absolute-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 #name {
@@ -23,8 +33,9 @@ body {
   justify-content: space-between;
   background-color: #ffdf8d;
   gap: 10px;
-  padding: 2px 2px;
+  padding: 2px;
   flex-shrink: 0; /* Prevents shrinking of the nav-bar */
+  width: 100%;
 }
 
 #nav-bar-left {
@@ -92,16 +103,44 @@ form {
   box-shadow: 0 0 12px rgb(113, 229, 154);
 }
 
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #main-container {
   display: flex;
   flex: 1; /* Takes up all available space between nav-bar and footer */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("/images/bg-img.jpg");
-  background-size: cover; /* Optional: To ensure the image covers the container */
+  height: 100%;
+  width: 100%;
+}
+
+#inner-container-wo-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: calc(100vh - 200px);
+  width: 75vh;
+  background-image: url("/images/trailing-bee.png");
+  background-size: 100% 90%;
   background-repeat: no-repeat;
-  height: calc(100vh - 103px);
+  background-color: #eeeeec;
+  border-radius: 25px;
+  box-shadow: 0 0 18px rgb(255, 67, 67);
+  transition: transform 0.5s ease-in-out;
+  font-family: "Lobster", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#inner-container-wo-data:hover {
+  transform: scale(1.1);
 }
 
 #inner-container-author-data {
@@ -184,6 +223,14 @@ form {
   margin-bottom: 0px;
 }
 
+#inner-container-author-data-alt {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgb(0, 0, 0);
+}
+
 #inner-container-title-data {
   display: flex;
   align-items: flex-start;
@@ -228,27 +275,10 @@ form {
   margin-bottom: 0px;
 }
 
-#inner-container-wo-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  height: calc(100vh - 200px);
-  width: 75vh;
-  background-image: url("/images/trailing-bee.png");
-  background-size: 100% 90%;
-  background-repeat: no-repeat;
-  background-color: #eeeeec;
-  border-radius: 25px;
-  box-shadow: 0 0 18px rgb(255, 67, 67);
-  transition: transform 0.5s ease-in-out;
-  font-family: "Lobster", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-#inner-container-wo-data:hover {
-  transform: scale(1.1);
+#inner-container-title-data-alt {
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgb(0, 0, 0);
 }
 
 #foot {
@@ -259,4 +289,830 @@ form {
   align-items: center;
   background-color: #ffdf8d;
   font-size: 19px;
+  width: 100%;
+}
+
+@media (max-width: 320px) {
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/bg-img.jpg");
+    background-size: cover; /* Optional: To ensure the image covers the container */
+    background-repeat: no-repeat;
+  }
+
+  #nav-bar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffdf8d;
+    gap: 10px;
+    padding: 2px;
+    flex-shrink: 0; /* Prevents shrinking of the nav-bar */
+    width: 100%;
+  }
+
+  #nb-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+  }
+
+  #nav-bar-right {
+    display: flex; /* Groups logo and name together */
+    align-items: center;
+    gap: 10px; /* Adds space between the logo and name */
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #drop-down {
+    min-width: none;
+  }
+
+  #search-bar {
+    padding: 0.375rem 0.75rem;
+    background-color: white;
+    border: solid 3px #ff8c00;
+    border-radius: 10px;
+    flex-grow: 1;
+    min-width: 75px;
+  }
+
+  #main-container {
+    display: flex;
+    flex: 1; /* Takes up all available space between nav-bar and footer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #inner-container-wo-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 70vh;
+    width: 75vw;
+    background-image: url("/images/trailing-bee.png");
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    background-color: #eeeeec;
+    border-radius: 25px;
+    box-shadow: 0 0 18px rgb(255, 67, 67);
+    transition: transform 0.5s ease-in-out;
+    font-family: "Lobster", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #inner-container-wo-data h1 {
+    font-size: 8vw;
+  }
+
+  #inner-container-wo-data h5 {
+    font-size: 4vw;
+  }
+
+  #inner-container-wo-data:hover {
+    transform: scale(1.05);
+  }
+
+  #inner-container-author-data {
+    display: none; /* Hides the default container */
+  }
+
+  #inner-container-author-data-alt {
+    display: flex; /* Shows the alternative container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85vw;
+    height: 70vh;
+    background-image: url("/images/vertical-black-board.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 2.5vh;
+    overflow-y: auto;
+  }
+
+  #inner-author-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+
+  #inner-author-alt h1 {
+    font-size: 1.05em;
+  }
+
+  .with-margin {
+    margin-bottom: 2em;
+  }
+
+  #inner-container-title-data {
+    display: none;
+  }
+
+  #inner-container-title-data-alt {
+    display: flex; /* Shows the alternative container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85vw;
+    height: 70vh;
+    background-image: url("/images/single-page.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 2.5vh;
+    overflow-y: auto;
+  }
+
+  .list-element-alt {
+    margin-bottom: 3em;
+  }
+
+  .list-element:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media ((min-width: 321px) and (max-width: 576px)) {
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/bg-img.jpg");
+    background-size: cover; /* Optional: To ensure the image covers the container */
+    background-repeat: no-repeat;
+  }
+
+  #nav-bar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffdf8d;
+    gap: 10px;
+    padding: 2px;
+    flex-shrink: 0; /* Prevents shrinking of the nav-bar */
+    width: 100%;
+  }
+
+  #nb-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+  }
+
+  #nav-bar-right {
+    display: flex; /* Groups logo and name together */
+    align-items: center;
+    gap: 10px; /* Adds space between the logo and name */
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #drop-down {
+    max-width: 128px;
+  }
+
+  #search-bar {
+    padding: 0.375rem 0.75rem;
+    background-color: white;
+    border: solid 3px #ff8c00;
+    border-radius: 10px;
+    flex-grow: 1;
+    min-width: 75px;
+  }
+
+  #main-container {
+    display: flex;
+    flex: 1; /* Takes up all available space between nav-bar and footer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #inner-container-wo-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 70vh;
+    width: 75vw;
+    background-image: url("/images/trailing-bee.png");
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    background-color: #eeeeec;
+    border-radius: 25px;
+    box-shadow: 0 0 18px rgb(255, 67, 67);
+    transition: transform 0.5s ease-in-out;
+    font-family: "Lobster", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #inner-container-wo-data h1 {
+    font-size: 8vw;
+  }
+
+  #inner-container-wo-data h5 {
+    font-size: 4vw;
+  }
+
+  #inner-container-wo-data:hover {
+    transform: scale(1.05);
+  }
+
+  #inner-container-author-data {
+    display: none; /* Hides the default container */
+  }
+
+  #inner-container-author-data-alt {
+    display: flex; /* Shows the alternative container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85vw;
+    height: 70vh;
+    background-image: url("/images/vertical-black-board.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 3vh;
+    overflow-y: auto;
+  }
+
+  #inner-author-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+
+  #inner-author-alt h1 {
+    font-size: 1.2em;
+  }
+
+  .with-margin {
+    margin-bottom: 2em;
+  }
+
+  #inner-container-title-data {
+    display: none;
+  }
+
+  #inner-container-title-data-alt {
+    display: flex; /* Shows the alternative container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85vw;
+    height: 70vh;
+    background-image: url("/images/single-page.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 3.5vh;
+    overflow-y: auto;
+  }
+
+  .list-element-alt {
+    margin-bottom: 3em;
+  }
+
+  .list-element:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media ((min-width: 577px) and (max-width: 768px)) {
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/bg-img.jpg");
+    background-size: cover; /* Optional: To ensure the image covers the container */
+    background-repeat: no-repeat;
+  }
+
+  #nav-bar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffdf8d;
+    gap: 10px;
+    padding: 2px;
+    flex-shrink: 0; /* Prevents shrinking of the nav-bar */
+    width: 100%;
+  }
+
+  #nb-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+  }
+
+  #nav-bar-right {
+    display: flex; /* Groups logo and name together */
+    align-items: center;
+    gap: 10px; /* Adds space between the logo and name */
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #drop-down {
+    max-width: 128px;
+  }
+
+  #search-bar {
+    padding: 0.375rem 0.75rem;
+    background-color: white;
+    border: solid 3px #ff8c00;
+    border-radius: 10px;
+    flex-grow: 1;
+    min-width: 75px;
+  }
+
+  #main-container {
+    display: flex;
+    flex: 1; /* Takes up all available space between nav-bar and footer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #inner-container-wo-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 70vh;
+    width: 75vw;
+    background-image: url("/images/trailing-bee.png");
+    background-size: 100% 80%;
+    background-repeat: no-repeat;
+    background-color: #eeeeec;
+    border-radius: 25px;
+    box-shadow: 0 0 18px rgb(255, 67, 67);
+    transition: transform 0.5s ease-in-out;
+    font-family: "Lobster", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #inner-container-wo-data h1 {
+    font-size: 8vw;
+  }
+
+  #inner-container-wo-data h5 {
+    font-size: 4vw;
+  }
+
+  #inner-container-wo-data:hover {
+    transform: scale(1.05);
+  }
+
+  #inner-container-author-data {
+    display: none; /* Hides the default container */
+  }
+
+  #inner-container-author-data-alt {
+    display: flex; /* Shows the alternative container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85vw;
+    height: 70vh;
+    background-image: url("/images/vertical-black-board.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 3vh;
+    overflow-y: auto;
+  }
+
+  #inner-author-alt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+
+  #inner-author-alt h1 {
+    font-size: 1.3em;
+  }
+
+  .with-margin {
+    margin-bottom: 2em;
+  }
+
+  #inner-container-title-data {
+    display: none;
+  }
+
+  #inner-container-title-data-alt {
+    display: flex; /* Shows the alternative container */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 85vw;
+    height: 70vh;
+    background-image: url("/images/single-page.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: black;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 4vh;
+    overflow-y: auto;
+  }
+
+  .list-element-alt {
+    margin-bottom: 3em;
+  }
+
+  .list-element:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+@media ((min-width: 769px)) {
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("/images/bg-img.jpg");
+    background-size: cover; /* Optional: To ensure the image covers the container */
+    background-repeat: no-repeat;
+  }
+
+  #absolute-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+  }
+
+  #name {
+    color: #ff8c00;
+    font-weight: 900;
+    /*text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);*/
+    /* -webkit-text-stroke: 0.1px rgb(0, 0, 0); Border */
+    font-family: "Dancing Script", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  #nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffdf8d;
+    gap: 10px;
+    padding: 2px;
+    flex-shrink: 0; /* Prevents shrinking of the nav-bar */
+    width: 100%;
+  }
+
+  #nav-bar-left {
+    display: flex; /* Groups logo and name together */
+    align-items: center;
+    gap: 10px; /* Adds space between the logo and name */
+  }
+
+  form {
+    display: flex; /* Groups logo and name together */
+    align-items: center;
+    gap: 10px; /* Adds space between the logo and name */
+    padding-right: 10px;
+  }
+
+  #nb-logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+  }
+
+  .nb-name {
+    font-size: 30px;
+  }
+
+  #drop-down {
+    border: solid 3px #ff8c00;
+    border-radius: 10px;
+  }
+
+  #drop-down:focus {
+    box-shadow: 0 0 8px rgb(255, 67, 67);
+    outline: none;
+  }
+
+  #search-bar {
+    padding: 0.375rem 0.75rem;
+    background-color: white;
+    border: solid 3px #ff8c00;
+    border-radius: 10px;
+  }
+
+  #search-bar:focus {
+    box-shadow: 0 0 8px rgb(255, 67, 67);
+    outline: none;
+  }
+
+  #button {
+    padding: 0.375rem 0.75rem;
+    border-radius: 10px;
+    /*background-color: #72bf78;*/
+    background-color: #72bf78;
+    color: white;
+    outline: none;
+    border: none;
+  }
+
+  #button:hover {
+    background-color: #2ca8a0;
+    box-shadow: 0 0 12px rgb(113, 229, 154);
+  }
+
+  #button:active {
+    background-color: #176b87;
+    box-shadow: 0 0 12px rgb(113, 229, 154);
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #main-container {
+    display: flex;
+    flex: 1; /* Takes up all available space between nav-bar and footer */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #inner-container-wo-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: calc(100vh - 200px);
+    width: 75vh;
+    background-image: url("/images/trailing-bee.png");
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+    background-color: #eeeeec;
+    border-radius: 25px;
+    box-shadow: 0 0 18px rgb(255, 67, 67);
+    transition: transform 0.5s ease-in-out;
+    font-family: "Lobster", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  #inner-container-wo-data:hover {
+    transform: scale(1.1);
+  }
+
+  #inner-container-author-data {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: 6.92vh 9.23vh 68.92vh;
+    height: 80vh;
+    width: 95.77vw;
+    gap: 1.54vh;
+    background-image: url("/images/black-board.png");
+    background-size: 100% 100%;
+    font-family: "Fredericka the Great", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.53vh; /* Relative to height for consistency */
+    color: white;
+  }
+
+  #inner-author {
+    padding-top: 0;
+    margin-top: 4.77vh;
+    margin-left: 3.43vw;
+    padding-bottom: 5.85vh;
+    grid-column: span 3;
+    grid-row: 1;
+    text-align: center;
+    width: 88.9vw;
+    border-bottom: 0.46vh double white;
+    font-size: 4vh;
+  }
+
+  #inner-details-title {
+    margin-left: 3.43vw;
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+    margin-top: 4.62vh;
+  }
+
+  #inner-details-year {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    margin-top: 4.62vh;
+  }
+
+  #inner-details-ratings {
+    grid-column: 3;
+    grid-row: 2;
+    text-align: center;
+    margin-right: 3.43vw;
+    margin-top: 4.62vh;
+  }
+
+  #inner-title {
+    grid-column: 1;
+    grid-row: 3;
+    margin-left: 3.43vw;
+    margin-top: 5vh;
+  }
+
+  #inner-year {
+    grid-column: 2;
+    grid-row: 3;
+    text-align: center;
+    margin-top: 5vh;
+  }
+
+  #inner-rating {
+    grid-column: 3;
+    grid-row: 3;
+    margin-right: 3.43vw;
+    text-align: center;
+    margin-top: 5vh;
+  }
+
+  .inner-col {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .lst-element {
+    margin-bottom: 35px;
+  }
+
+  .lst-element:last-child {
+    margin-bottom: 0px;
+  }
+
+  #inner-container-author-data-alt {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #inner-container-title-data {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    background-image: url("/images/open-book.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 95.77vw;
+    gap: 4.62vh;
+  }
+
+  #inner-left {
+    padding-top: 10vh;
+    padding-left: 14.62vw;
+    align-items: flex-start;
+    font-size: 3vh;
+    width: 47.38vw;
+  }
+
+  #inner-right {
+    padding-top: 10vh;
+    align-items: flex-start;
+    font-size: 3vh;
+    width: 35.26vw;
+  }
+
+  .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-element {
+    margin-bottom: 6vh;
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .list-element:last-child {
+    margin-bottom: 0px;
+  }
+
+  #inner-container-title-data-alt {
+    display: none;
+  }
+
+  #foot {
+    flex-shrink: 0; /* Keeps the footer fixed at the bottom */
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffdf8d;
+    font-size: 19px;
+    width: 100%;
+  }
 }

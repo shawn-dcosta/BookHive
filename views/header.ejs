@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Project</title>
-    <link rel="icon" type="image/x-icon" href="images/logo-wo-bg.png">
-    <link rel="stylesheet" href="styles/main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fredericka+the+Great&family=Goudy+Bookletter+1911&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&display=swap" rel="stylesheet">
-</head>
-<body>
-    <main>
-        <div id="nav-bar">
-            <div id="nav-bar-left">
-                <a href="/"><img id="nb-logo" src="images/logo-wo-bg.png" alt="Logo"></a>
-                <span id="name" class="nb-name">BookHive</span>
-            </div>
-            <div id="nav-bar-right">
-                <form action="/submit" method="POST">
-                    <select id="drop-down" name="searchBy" class="form-select">
-                        <option value="" selected>Search By</option>
-                        <option value="author">Author</option>
-                        <option value="title">Title</option>
-                    </select>
-                    <input id="search-bar" type="text" name="searchBar" placeholder="Search here...">
-                    <input id="button" type="submit" value="Submit">
-                </form>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookHive</title>
+    <link rel="icon" type="image/x-icon" href="images/logo-wo-bg.png" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fredericka+the+Great&family=Goudy+Bookletter+1911&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="absolute-main">
+    <div id="nav-bar">
+        <div id="nav-bar-left">
+            <a href="/"
+            ><img id="nb-logo" src="images/logo-wo-bg.png" alt="Logo"
+            /></a>
+            <span id="name" class="nb-name">BookHive</span>
         </div>
+        <div id="nav-bar-right">
+            <form action="/submit" method="POST">
+                <select id="drop-down" name="searchBy" class="form-select" required>
+                    <option value="" disabled selected>Search By</option>
+                    <option value="author">Author</option>
+                    <option value="title">Title</option>
+                </select>
+                <input
+                    id="search-bar"
+                    type="text"
+                    name="searchBar"
+                    placeholder="Search here..."
+                    required
+                />
+                <input id="button" type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+        <main>

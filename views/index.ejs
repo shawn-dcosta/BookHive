@@ -1,15 +1,10 @@
 <%- include("header.ejs") %>
 
-<!-- author_name: result.author_name,
-title: result.title,
-ratings_sortable: result.ratings_sortable,
-first_publish_year: result.first_publish_year, -->
-
 <div id="main-container">
     <% if(locals.content && filter === "author") { %>
     <div id="inner-container-author-data">
         <div id="inner-author">
-            Top 5 Books of <%= content.docs[0].author_name[0] %>
+            <h3>Top 5 Books of <%= content.docs[0].author_name[0] %></h3>
         </div>
         <div id="inner-details-title">
             <em>Book Title</em>
@@ -37,10 +32,37 @@ first_publish_year: result.first_publish_year, -->
         <div id="inner-rating">
             <ul class="lst inner-col">
                 <% for(let i=0; i<content.docs.length && i<5; i++) { %>
-                    <li class="lst-element"><%= content.docs[i].ratings_sortable %></li>
+                    <% let num1 = content.docs[i].ratings_sortable %>
+                    <% if(num1 == null) { %>
+                      <li class="lst-element"> <%= num1 %> </li>
+                    <% } else { %>
+                    <li class="lst-element"><%= num1.toFixed(1) %></li>
+                    <% } %>
                 <% } %>
             </ul>
         </div>
+    </div>
+    <div id="inner-container-author-data-alt">
+      <div id="inner-author-alt">
+        <h1>Top 5 Books of <%= content.docs[0].author_name[0] %></h1>
+      </div>
+      <div id="inner-author-alt-content">
+        <ul class="lst-alt">
+          <% for(let i=0; i<content.docs.length && i<5; i++) { %>
+              <li class="lst-element-alt"><%= content.docs[i].title %></li>
+              <ul class="sub-lst-alt">
+                <li class="sub-lst-element-alt">First Published Year: <%= content.docs[i].first_publish_year %></li>
+                <% let num2 = content.docs[i].ratings_sortable %>
+                <% let isLastElement = i === Math.min(content.docs.length, 5) - 1; %>
+                <% if(num2 == null) { %>
+                  <li class="sub-lst-element-alt-l <%= isLastElement ? '' : 'with-margin' %>">Rating: <%= num2 %> </li>
+                <% } else { %>
+                  <li class="sub-lst-element-alt-l <%= isLastElement ? '' : 'with-margin' %>">Rating: <%= num2.toFixed(1) %></li>
+                <% } %>
+              </ul>
+          <% } %>
+      </ul>
+      </div>
     </div>
     <% } else if(locals.content && filter === "title") { %>
   <div id="inner-container-title-data">
@@ -56,7 +78,12 @@ first_publish_year: result.first_publish_year, -->
           <strong>Total Ratings</strong>: <%= content.ratings_count %>
         </li>
         <li class="list-element">
-          <strong>Average Ratings</strong>: <%= content.ratings_average %>
+          <% let num3 = content.ratings_average %>
+          <% if(num3 == null) { %>
+            <strong>Average Ratings</strong>: <%= num3 %>
+          <% } else { %>
+            <strong>Average Ratings</strong>: <%= num3.toFixed(1) %>
+          <% } %>
         </li>
         <li class="list-element">
           <strong>5★ Ratings</strong>: <%= content.ratings_count_5 %>
@@ -80,12 +107,61 @@ first_publish_year: result.first_publish_year, -->
             <% } %>
         </li>
         <li class="list-element">
-          <strong>People Reading</strong>: <%= content.currently_reading_count%>
+          <strong>Current Readers</strong>: <%= content.currently_reading_count%>
         </li>
         <li class="list-element">
           <strong>Wanting to Read</strong>: <%= content.want_to_read_count %>
         </li>
         <li class="list-element">
+          <strong>Already Read</strong>: <%= content.already_read_count %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="inner-container-title-data-alt">
+    <div id="inner-container-title-alt">
+      <ul class="list-alt">
+        <li class="list-element-alt">
+          <strong>Title</strong>: <%= content.title %>
+        </li>
+        <li class="list-element-alt">
+          <strong>Author's Name</strong>: <%= content.author_name %>
+        </li>
+        <li class="list-element-alt">
+          <strong>Total Ratings</strong>: <%= content.ratings_count %>
+        </li>
+        <li class="list-element-alt">
+          <% let num4 = content.ratings_average %>
+          <% if(num4 == null) { %>
+            <strong>Average Ratings</strong>: <%= num4 %>
+          <% } else { %>
+            <strong>Average Ratings</strong>: <%= num4.toFixed(1) %>
+          <% } %>
+        </li>
+        <li class="list-element-alt">
+          <strong>5★ Ratings</strong>: <%= content.ratings_count_5 %>
+        </li>
+        <li class="list-element-alt">
+          <strong>Published Year</strong>: <%= content.first_publish_year %>
+        </li>
+        <li class="list-element-alt">
+            <strong>Languages</strong>:
+            <% if (!content.language) { %>
+                ENG
+            <% } else { %>
+                <% for(let i=0; i<content.language.length && i<9; i++) { %>
+                    <% if(content.language[i] === "eng") continue %>
+                    <%= content.language[i].toUpperCase() %>, 
+                <% } %>ENG 
+            <% } %>
+        </li>
+        <li class="list-element-alt">
+          <strong>Current Readers</strong>: <%= content.currently_reading_count%>
+        </li>
+        <li class="list-element-alt">
+          <strong>Wanting to Read</strong>: <%= content.want_to_read_count %>
+        </li>
+        <li class="list-element-alt">
           <strong>Already Read</strong>: <%= content.already_read_count %>
         </li>
       </ul>
