@@ -20,8 +20,8 @@ app.post("/submit", async (req, res) => {
     else{
         try{
             let response = "";
-            if(filter === "author") response = await axios.get(API_URL + `${filter}=` + `${query}&sort=rating`);
-            else if(filter === "title") response = await axios.get(API_URL + `${filter}=` + `${query}`);
+            if(filter === "author") response = await axios.get(API_URL + `${filter}=` + `${query}` + "&fields=*&sort=rating");
+            else if(filter === "title") response = await axios.get(API_URL + `${filter}=` + `${query}` + "&fields=*");
             const result = response.data;
             const data = {
                 author_name: result.docs[0].author_name[0],
